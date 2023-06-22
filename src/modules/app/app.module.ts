@@ -8,6 +8,7 @@ import configurations from "../../configurations";
 import {User} from "../users/models/user.model";
 import {AuthModule} from "../auth/auth.module";
 import {TokenModule} from "../token/token.module";
+import {WatchlistModule} from "../watchlist/watchlist.module";
 
 @Module({
     imports: [ConfigModule.forRoot({
@@ -31,7 +32,8 @@ import {TokenModule} from "../token/token.module";
         }),
         UsersModule,
         AuthModule,
-        TokenModule
+        TokenModule,
+        WatchlistModule
     ],
     controllers: [AppController],
     providers: [AppService],
