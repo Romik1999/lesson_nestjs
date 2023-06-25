@@ -14,18 +14,10 @@ export class WatchlistController {
         return this.watchListService.createAsset(user, assetDto)
     }
 
-    @Get('get-all')
-    getAllAsset(){
-        return
-    }
-
-    @Patch('update')
-    updateAsset(){
-        return
-    }
-
+    @UseGuards(JwtAuthGuard)
     @Delete()
-    deleteAsset(@Query('id') id:string){
-        return
+    deleteAsset(@Query('id') assetId:string, @Req() request): Promise<boolean>{
+        const {id} = request.user
+        return this.watchListService.deleteAsset(id, assetId)
     }
 }
